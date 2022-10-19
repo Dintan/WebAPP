@@ -6,4 +6,8 @@ module.exports = function (app) {
     app.get("/time", routeController.time)
 
     app.get("/date", routeController.date)
+
+    app.get("/hello", routeController.getHello)
+
+    app.post("/hello", routeController.postHello)
 }

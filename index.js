@@ -3,9 +3,17 @@ const moment = require("moment")
 
 const app = express()
 const routes = require("./routes")
-routes(app)
+const api = require("./routes/api")
 
-app.listen(3000, function () {
-    console.log("Web APP listening port 3000")
+const port = 3000
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+routes(app)
+app.use("/api", api)
+
+app.listen(port, function () {
+    console.log(`Web APP listening port ${port}`)
     console.log(moment().format('h:mm:ss a'))
 })
