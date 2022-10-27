@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 routes(app)
-app.use("/api", api)
+app.use("/api/v1", api)
 
 app.listen(port, function () {
     console.log(`Web APP listening port ${port}`)

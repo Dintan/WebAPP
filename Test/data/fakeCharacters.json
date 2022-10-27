@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Jon Snow",
+        "birth place": "Dorne",
+        "image": "https://w0.peakpx.com/wallpaper/778/318/HD-wallpaper-jon-snow-and-ghost-art-luminos-game-of-thrones-man-fantasy-ghost-muyang-xu-wolf-jon-snow-blue.jpg",
+        "skills": [
+            "Swordmanships",
+            "Leadership",
+            "Charisma"
+        ]
+    },
+    {
+        "name": "Robb Stark",
+        "birth place": "Riverrun",
+        "image": "https://awoiaf.westeros.org/images/thumb/c/c4/The_Wolf_KingXOX.jpg/350px-The_Wolf_KingXOX.jpg",
+        "skills": [
+            "Swordmanships",
+            "Leadership",
+            "Ruling"
+        ]
+    },
+    {
+        "name": "Daenerys Targaryen",
+        "birth place": "Dragonstone",
+        "image": "https://awoiaf.westeros.org/images/c/ca/Daenerys_by_Hylora.JPG",
+        "skills": [
+            "Dragons",
+            "Leadership",
+            "Magic"
+        ]
+    }
+]
