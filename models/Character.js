@@ -5,6 +5,6 @@ const CharacterSchema = new Schema({
     name: { type: String }
 })
 
-const Character = mongoose.Model("Character", CharacterSchema)
+const Character = mongoose.model("Character", CharacterSchema)
 
-module.export = CharacterSchema
+module.exports = Character

@@ -1,3 +1,6 @@
+const mongoose = require("mongoose")
+
+const Character = require("../models/Character")
 const fakeCharacters = require("../Test/data/fakeCharacters.json")
 
 const addFakeId = (element, index) => ({
@@ -10,38 +13,37 @@ const characters = [...fakeCharacters].map(addFakeId)
 const characterController = {
 
     create: async character => {
-        const newCharacter = {
-            ...character,
-            id: characters.length
-        }
 
-        characters.push(newCharacter)
+        const newCharacter = new Character(character)
+        const savedCharacter = await newCharacter.save()
 
-        return newCharacter
+        return savedCharacter
     },
 
     findAll: async () => {
-
+        const characters = await Character.find({})
         return characters
     },
 
     findOne: async id => {
-        const character = characters.find(c => c.id == id)
+        const character = await Character.findById(id)
 
         return character
     },
 
 
     update: async (id, data) => {
-        let previousCharacters = characters.find(c => c.id == id)
+        //  let previousCharacters = characters.find(c => c.id == id)
 
-        const updatedCharacters = {
-            ...previousCharacters,
-            ...data
-        }
 
-        const index = characters.indexOf(previousCharacters)
-        characters[index] = updatedCharacters
+        await Character.updateOne(
+            { _id: id },
+            data
+        )
+
+        let updatedCharacters = await Character.findById(id)
+        //const index = characters.indexOf(previousCharacters)
+        //characters[index] = updatedCharacters
         return updatedCharacters
 
     },
