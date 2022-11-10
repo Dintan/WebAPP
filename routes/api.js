@@ -42,9 +42,16 @@ api
     })
 
     .delete("/characters/:id", async (req, res) => {
-        const id = req.params.id
-        await characterController.delete(id)
-        res.send("Character deleted correctly")
+        try {
+
+
+            const id = req.params.id
+            await characterController.delete(id)
+            res.send("Character deleted correctly")
+        } catch (error) {
+            console.log(error.message)
+            res.send(error.message)
+        }
     })
 
 
