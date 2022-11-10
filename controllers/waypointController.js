@@ -1,16 +1,16 @@
-const Character = require("../models/Character")
+const Waypoint = require("../models/Waypoint")
 
 
-const characterController = {
+const waypointController = {
 
-    create: async character => {
+    create: async waypoint => {
         try {
 
 
-            const newCharacter = new Character(character)
-            const savedCharacter = await newCharacter.save()
+            const newWaypoint = new Waypoint(waypoint)
+            const savedWaypoint = await newWaypoint.save()
 
-            return savedCharacter
+            return savedWaypoint
         } catch (err) {
             console.log("Error al intentar crer registro");
         }
@@ -20,8 +20,8 @@ const characterController = {
         try {
 
 
-            const characters = await Character.find({})
-            return characters
+            const waypoints = await Waypoint.find({})
+            return waypoints
         } catch (error) {
             console.log("Error al consultar todos los registros");
         }
@@ -31,8 +31,8 @@ const characterController = {
         try {
 
 
-            const character = await Character.findById(id)
-            return character
+            const waypoint = await Waypoint.findById(id)
+            return waypoint
 
         } catch (error) {
             console.log("Registro no encontrado");
@@ -41,18 +41,18 @@ const characterController = {
 
 
     update: async (id, data) => {
-        //  let previousCharacters = characters.find(c => c.id == id)
+        //  let previousWaypoints = waypoints.find(c => c.id == id)
         try {
 
-            await Character.updateOne(
+            await Waypoint.updateOne(
                 { _id: id },
                 data
             )
 
-            let updatedCharacters = await Character.findById(id)
-            //const index = characters.indexOf(previousCharacters)
-            //characters[index] = updatedCharacters
-            return updatedCharacters
+            let updatedWaypoints = await Waypoint.findById(id)
+            //const index = waypoints.indexOf(previousWaypoints)
+            //waypoints[index] = updatedWaypoints
+            return updatedWaypoints
         } catch (error) {
             console.log("Error al intentat actualizar registro");
         }
@@ -63,7 +63,7 @@ const characterController = {
         try {
 
 
-            await Character.deleteOne({ _id: id })
+            await Waypoint.deleteOne({ _id: id })
 
         } catch (error) {
             throw new Error("Error al intentar eliminar registro");
@@ -71,4 +71,4 @@ const characterController = {
     }
 }
 
-module.exports = characterController
+module.exports = waypointController
